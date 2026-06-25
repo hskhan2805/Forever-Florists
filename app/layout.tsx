@@ -2,26 +2,21 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollProgress from "@/components/ScrollProgress";
+import FloatingPetals from "@/components/FloatingPetals";
 
 export const metadata: Metadata = {
-  title: "Forever Florists Boutique - Fresh Flowers & Gifts in Prince George",
+  title: "Forever Florists Boutique | Prince George, BC",
   description:
-    "Discover beautiful floral arrangements, gifts, jewelry, chocolates & wedding services. Premium florist boutique in Prince George, BC.",
+    "Fragrant fresh flowers, handcrafted gifts, fine jewelry & chocolates. Prince George's premier floral boutique at 6551 Hart Highway.",
   keywords:
-    "florist, flowers, Prince George, wedding flowers, gifts, boutique, fresh flowers",
+    "florist Prince George BC, wedding flowers, fresh bouquets, gifts, jewelry, chocolates, forever florists boutique",
   authors: [{ name: "Forever Florists Boutique" }],
   openGraph: {
-    title: "Forever Florists Boutique",
+    title: "Forever Florists Boutique | Prince George, BC",
     description:
-      "Beautiful fresh flowers and curated gifts for every occasion.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Forever Florists Boutique",
-      },
-    ],
+      "Beautiful fresh flowers and curated gifts for every occasion in Prince George.",
+    type: "website",
   },
 };
 
@@ -32,7 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-white text-gray-900">
+      <body className="bg-forest-900 text-cream overflow-x-hidden">
+        <ScrollProgress />
+        <FloatingPetals />
         <Header />
         <main>{children}</main>
         <Footer />
