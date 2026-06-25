@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
 
 const stats = [
   { value: 15, suffix: "+", label: "Years in Business" },
@@ -85,7 +86,7 @@ export default function About() {
 
         {/* Main content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Botanical art panel */}
+          {/* Photo collage panel */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -93,83 +94,59 @@ export default function About() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="relative rounded-3xl overflow-hidden aspect-[4/5] glass-card p-1">
-              <div className="w-full h-full rounded-[22px] bg-gradient-to-br from-forest-700 via-rose-900 to-champagne-900 flex items-center justify-center relative overflow-hidden">
-                {/* Large botanical SVG */}
-                <svg viewBox="0 0 400 500" className="w-full h-full opacity-80" fill="none">
-                  {/* Background glow */}
-                  <radialGradient id="aboutGlow" cx="50%" cy="45%" r="45%">
-                    <stop offset="0%" stopColor="#e63d6e" stopOpacity="0.25"/>
-                    <stop offset="100%" stopColor="#0b1a0e" stopOpacity="0"/>
-                  </radialGradient>
-                  <circle cx="200" cy="220" r="200" fill="url(#aboutGlow)"/>
-
-                  {/* Vase */}
-                  <path d="M155 430 Q140 400 145 350 L175 280 L225 280 L255 350 Q260 400 245 430 Z" fill="#1a3020" stroke="#3d6e45" strokeWidth="2"/>
-                  <ellipse cx="200" cy="430" rx="50" ry="12" fill="#122418"/>
-                  <ellipse cx="200" cy="278" rx="30" ry="8" fill="#3d6e45" opacity="0.6"/>
-                  <path d="M170 380 Q200 370 230 380" stroke="#5a9464" strokeWidth="2" fill="none" opacity="0.5"/>
-
-                  {/* Stems */}
-                  <path d="M200 278 C200 230 198 180 200 140" stroke="#3d6e45" strokeWidth="2.5" strokeLinecap="round"/>
-                  <path d="M200 278 C185 240 170 200 155 160" stroke="#3d6e45" strokeWidth="2" strokeLinecap="round"/>
-                  <path d="M200 278 C215 235 230 195 248 155" stroke="#3d6e45" strokeWidth="2" strokeLinecap="round"/>
-                  <path d="M200 278 C175 250 148 230 130 200" stroke="#3d6e45" strokeWidth="1.5" strokeLinecap="round"/>
-                  <path d="M200 278 C225 255 252 235 270 205" stroke="#3d6e45" strokeWidth="1.5" strokeLinecap="round"/>
-
-                  {/* Leaves */}
-                  <ellipse cx="175" cy="240" rx="28" ry="10" fill="#2d5233" transform="rotate(-35,175,240)" opacity="0.9"/>
-                  <ellipse cx="228" cy="248" rx="25" ry="9" fill="#3d6e45" transform="rotate(40,228,248)" opacity="0.8"/>
-                  <ellipse cx="163" cy="205" rx="22" ry="8" fill="#2d5233" transform="rotate(-45,163,205)" opacity="0.85"/>
-                  <ellipse cx="240" cy="215" rx="20" ry="7" fill="#3d6e45" transform="rotate(42,240,215)" opacity="0.75"/>
-                  <ellipse cx="140" cy="215" rx="18" ry="7" fill="#5a9464" transform="rotate(-25,140,215)" opacity="0.7"/>
-                  <ellipse cx="262" cy="230" rx="16" ry="6" fill="#5a9464" transform="rotate(35,262,230)" opacity="0.65"/>
-
-                  {/* Main rose — center */}
-                  <ellipse cx="200" cy="120" rx="38" ry="45" fill="#e63d6e" opacity="0.85"/>
-                  <ellipse cx="200" cy="125" rx="28" ry="35" fill="#cc2a5a" opacity="0.9"/>
-                  <ellipse cx="188" cy="128" rx="22" ry="28" fill="#a81e49" opacity="0.85" transform="rotate(-15,188,128)"/>
-                  <ellipse cx="212" cy="128" rx="22" ry="28" fill="#a81e49" opacity="0.85" transform="rotate(15,212,128)"/>
-                  <circle cx="200" cy="128" r="14" fill="#7a1535"/>
-                  <circle cx="200" cy="128" r="7" fill="#4a0d22"/>
-
-                  {/* Left rose */}
-                  <ellipse cx="150" cy="152" rx="28" ry="33" fill="#cc2a5a" opacity="0.8"/>
-                  <ellipse cx="150" cy="157" rx="20" ry="24" fill="#a81e49" opacity="0.85"/>
-                  <circle cx="150" cy="157" r="10" fill="#7a1535"/>
-                  <circle cx="150" cy="157" r="5" fill="#4a0d22"/>
-
-                  {/* Right rose */}
-                  <ellipse cx="252" cy="145" rx="26" ry="30" fill="#e63d6e" opacity="0.75"/>
-                  <ellipse cx="252" cy="150" rx="18" ry="22" fill="#cc2a5a" opacity="0.8"/>
-                  <circle cx="252" cy="150" r="9" fill="#7a1535"/>
-                  <circle cx="252" cy="150" r="4.5" fill="#4a0d22"/>
-
-                  {/* Small accent flowers */}
-                  {[[130,195],[272,202],[200,80],[165,100],[238,95]].map(([cx,cy], i) => (
-                    <g key={i}>
-                      {[0,72,144,216,288].map((angle, j) => (
-                        <ellipse key={j} cx={cx + 10 * Math.cos((angle*Math.PI)/180)} cy={cy + 10 * Math.sin((angle*Math.PI)/180)} rx="5" ry="8" fill={i%2===0 ? "#f49bb5" : "#e0bc6a"} transform={`rotate(${angle+90},${cx + 10 * Math.cos((angle*Math.PI)/180)},${cy + 10 * Math.sin((angle*Math.PI)/180)})`} opacity="0.8"/>
-                      ))}
-                      <circle cx={cx} cy={cy} r="5" fill={i%2===0 ? "#e63d6e" : "#b3841c"}/>
-                    </g>
-                  ))}
-
-                  {/* Gold sparkles */}
-                  {[[90,100],[310,90],[320,220],[80,250]].map(([cx,cy],i) => (
-                    <path key={i} d={`M${cx} ${cy-6} L${cx+2} ${cy-2} L${cx+6} ${cy} L${cx+2} ${cy+2} L${cx} ${cy+6} L${cx-2} ${cy+2} L${cx-6} ${cy} L${cx-2} ${cy-2} Z`} fill="#e0bc6a" opacity="0.6"/>
-                  ))}
-                </svg>
-              </div>
+            {/* Main tall photo */}
+            <div className="relative rounded-3xl overflow-hidden aspect-[4/5] border border-white/8 shadow-card-dark">
+              <Image
+                src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=800&q=88"
+                alt="Beautiful floral arrangement"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/50 via-transparent to-transparent" />
             </div>
 
-            {/* Floating badge */}
+            {/* Overlay — top-right small photo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="absolute -top-5 -right-5 w-36 h-44 rounded-2xl overflow-hidden border-2 border-forest-900 shadow-card-dark hidden lg:block"
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1490750967868-88df5691cc84?auto=format&fit=crop&w=400&q=85"
+                alt="Fresh roses"
+                fill
+                sizes="144px"
+                className="object-cover object-center"
+              />
+            </motion.div>
+
+            {/* Overlay — bottom-left small photo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="absolute -bottom-5 -left-5 w-40 h-48 rounded-2xl overflow-hidden border-2 border-forest-900 shadow-card-dark hidden lg:block"
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=400&q=85"
+                alt="Colourful spring bouquet"
+                fill
+                sizes="160px"
+                className="object-cover object-center"
+              />
+            </motion.div>
+
+            {/* Est. badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               viewport={{ once: true }}
-              className="absolute -bottom-6 -right-4 glass-card rounded-2xl p-5 text-center hidden lg:block"
+              className="absolute bottom-6 right-6 glass-card rounded-2xl p-5 text-center"
             >
               <p className="font-display text-3xl gradient-gold">❋</p>
               <p className="text-cream text-xs font-semibold mt-1">Est. 2009</p>

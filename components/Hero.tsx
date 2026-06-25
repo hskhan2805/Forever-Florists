@@ -1,74 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-function BotanicalIllustration() {
-  return (
-    <svg viewBox="0 0 500 500" className="w-full h-full" fill="none">
-      {/* Background glow */}
-      <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stopColor="#e63d6e" stopOpacity="0.2" />
-        <stop offset="100%" stopColor="#0b1a0e" stopOpacity="0" />
-      </radialGradient>
-      <circle cx="250" cy="250" r="220" fill="url(#centerGlow)" />
-
-      {/* Gold ring */}
-      <circle cx="250" cy="250" r="210" stroke="url(#goldRing)" strokeWidth="1" strokeDasharray="4 8" opacity="0.4" />
-      <linearGradient id="goldRing" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#e0bc6a" />
-        <stop offset="100%" stopColor="#b3841c" />
-      </linearGradient>
-
-      {/* Stem */}
-      <path d="M250 440 C250 350, 245 310, 250 250" stroke="#3d6e45" strokeWidth="3" strokeLinecap="round" />
-
-      {/* Leaves */}
-      <ellipse cx="222" cy="340" rx="32" ry="12" fill="#2d5233" transform="rotate(-30, 222, 340)" opacity="0.9" />
-      <ellipse cx="278" cy="310" rx="28" ry="11" fill="#3d6e45" transform="rotate(35, 278, 310)" opacity="0.8" />
-      <ellipse cx="215" cy="285" rx="24" ry="9" fill="#2d5233" transform="rotate(-45, 215, 285)" opacity="0.85" />
-      <ellipse cx="285" cy="268" rx="22" ry="8" fill="#3d6e45" transform="rotate(40, 285, 268)" opacity="0.75" />
-
-      {/* Rose petals — large */}
-      <ellipse cx="250" cy="210" rx="45" ry="55" fill="#e63d6e" opacity="0.9" />
-      <ellipse cx="210" cy="225" rx="42" ry="50" fill="#cc2a5a" opacity="0.85" transform="rotate(-30, 210, 225)" />
-      <ellipse cx="290" cy="225" rx="42" ry="50" fill="#cc2a5a" opacity="0.85" transform="rotate(30, 290, 225)" />
-      <ellipse cx="222" cy="175" rx="38" ry="46" fill="#e63d6e" opacity="0.8" transform="rotate(-15, 222, 175)" />
-      <ellipse cx="278" cy="175" rx="38" ry="46" fill="#e63d6e" opacity="0.8" transform="rotate(15, 278, 175)" />
-
-      {/* Rose petals — inner */}
-      <ellipse cx="250" cy="215" rx="30" ry="38" fill="#cc2a5a" opacity="0.95" />
-      <ellipse cx="235" cy="220" rx="25" ry="32" fill="#a81e49" opacity="0.9" transform="rotate(-20, 235, 220)" />
-      <ellipse cx="265" cy="220" rx="25" ry="32" fill="#a81e49" opacity="0.9" transform="rotate(20, 265, 220)" />
-
-      {/* Center */}
-      <circle cx="250" cy="218" r="18" fill="#7a1535" />
-      <circle cx="250" cy="218" r="10" fill="#4a0d22" />
-      <circle cx="246" cy="214" r="3" fill="#e0bc6a" opacity="0.8" />
-      <circle cx="254" cy="214" r="3" fill="#e0bc6a" opacity="0.8" />
-      <circle cx="250" cy="222" r="3" fill="#e0bc6a" opacity="0.8" />
-
-      {/* Sparkles */}
-      <g fill="#e0bc6a" opacity="0.7">
-        <path d="M148 130 L152 140 L162 144 L152 148 L148 158 L144 148 L134 144 L144 140 Z" />
-        <path d="M355 90 L358 98 L366 101 L358 104 L355 112 L352 104 L344 101 L352 98 Z" />
-        <path d="M390 200 L392 207 L399 209 L392 211 L390 218 L388 211 L381 209 L388 207 Z" />
-        <path d="M115 260 L117 266 L123 268 L117 270 L115 276 L113 270 L107 268 L113 266 Z" />
-      </g>
-
-      {/* Small accent flowers */}
-      <g opacity="0.6">
-        <circle cx="145" cy="195" r="8" fill="#f49bb5" />
-        <circle cx="145" cy="195" r="4" fill="#e63d6e" />
-        <circle cx="362" cy="162" r="6" fill="#f49bb5" />
-        <circle cx="362" cy="162" r="3" fill="#e63d6e" />
-        <circle cx="380" cy="310" r="7" fill="#f49bb5" />
-        <circle cx="380" cy="310" r="3.5" fill="#e63d6e" />
-        <circle cx="128" cy="355" r="5" fill="#f49bb5" />
-        <circle cx="128" cy="355" r="2.5" fill="#e63d6e" />
-      </g>
-    </svg>
-  );
-}
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -147,30 +80,73 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Illustration side */}
+          {/* Photo side */}
           <motion.div
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
             className="relative flex items-center justify-center"
           >
-            {/* Rotating ring */}
+            {/* Rotating dashed ring */}
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 rounded-full border border-champagne-600/20"
+              className="absolute w-[400px] h-[400px] md:w-[480px] md:h-[480px] rounded-full border border-champagne-600/25"
               style={{ borderStyle: "dashed" }}
             />
 
             {/* Glow disc */}
-            <div className="absolute inset-8 rounded-full bg-rose-600/10 blur-2xl" />
+            <div className="absolute w-72 h-72 rounded-full bg-rose-600/15 blur-3xl" />
 
-            {/* Main illustration */}
-            <div className="relative w-80 h-80 md:w-96 md:h-96 animate-float">
-              <BotanicalIllustration />
+            {/* Main photo — tall portrait */}
+            <div className="relative w-72 h-[420px] md:w-80 md:h-[480px] rounded-3xl overflow-hidden shadow-card-dark border border-white/10 animate-float">
+              <Image
+                src="https://images.unsplash.com/photo-1487530811015-780fad4a2bd4?auto=format&fit=crop&w=700&q=90"
+                alt="Beautiful flower bouquet"
+                fill
+                priority
+                sizes="(max-width: 768px) 288px, 320px"
+                className="object-cover object-center"
+              />
+              {/* Rose tint overlay for brand colour */}
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/60 via-transparent to-rose-900/10" />
             </div>
 
-            {/* Floating accent cards */}
+            {/* Second smaller photo — overlapping bottom-right */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.9, duration: 0.6 }}
+              className="absolute -bottom-4 -right-2 md:right-4 w-36 h-44 rounded-2xl overflow-hidden border-2 border-forest-900 shadow-card-dark hidden sm:block"
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=400&q=85"
+                alt="Bridal bouquet"
+                fill
+                sizes="144px"
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/50 to-transparent" />
+            </motion.div>
+
+            {/* Third small photo — top-left */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.1, duration: 0.6 }}
+              className="absolute -top-4 -left-2 md:left-4 w-32 h-36 rounded-2xl overflow-hidden border-2 border-forest-900 shadow-card-dark hidden sm:block"
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=85"
+                alt="Red roses"
+                fill
+                sizes="128px"
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/50 to-transparent" />
+            </motion.div>
+
+            {/* Floating info cards */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
