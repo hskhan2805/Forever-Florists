@@ -30,7 +30,7 @@ const items: {
     category: "Bouquets",
     title: "Fresh Roses",
     subtitle: "Hand-picked daily",
-    photo: "https://images.unsplash.com/photo-1563241527-3004b1fd2e4e?auto=format&fit=crop&w=800&q=85",
+    photo: "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=800&q=85",
     imgPos: "object-center",
   },
   {
