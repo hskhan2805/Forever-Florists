@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --font-display: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.prose {
+  @apply max-w-none;
+}
+
+.container-wide {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.button-primary {
+  @apply inline-flex items-center justify-center px-6 py-3 bg-accent-600 text-white font-medium rounded-lg hover:bg-accent-700 transition-colors duration-200;
+}
+
+.button-secondary {
+  @apply inline-flex items-center justify-center px-6 py-3 border-2 border-accent-600 text-accent-600 font-medium rounded-lg hover:bg-accent-50 transition-colors duration-200;
+}
+
+.button-outline {
+  @apply inline-flex items-center justify-center px-6 py-3 border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:border-accent-600 hover:text-accent-600 transition-colors duration-200;
+}
+
+.gradient-text {
+  @apply bg-gradient-flower bg-clip-text text-transparent;
+}
+
+.card {
+  @apply rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-lg transition-shadow duration-300;
+}
+
+.card-elevated {
+  @apply rounded-2xl bg-white shadow-lg;
+}
+
+.transition-smooth {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
