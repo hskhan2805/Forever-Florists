@@ -101,7 +101,7 @@ export default function Hero() {
             {/* Main photo — tall portrait */}
             <div className="relative w-72 h-[420px] md:w-80 md:h-[480px] rounded-3xl overflow-hidden shadow-card-dark border border-white/10 animate-float">
               <Image
-                src="https://images.unsplash.com/photo-1487530811015-780fad4a2bd4?auto=format&fit=crop&w=700&q=90"
+                src="https://images.unsplash.com/photo-1444021465936-c6ca81d39b84?auto=format&fit=crop&w=700&q=90"
                 alt="Beautiful flower bouquet"
                 fill
                 priority

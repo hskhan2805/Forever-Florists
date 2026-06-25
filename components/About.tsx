@@ -115,7 +115,7 @@ export default function About() {
               className="absolute -top-5 -right-5 w-36 h-44 rounded-2xl overflow-hidden border-2 border-forest-900 shadow-card-dark hidden lg:block"
             >
               <Image
-                src="https://images.unsplash.com/photo-1490750967868-88df5691cc84?auto=format&fit=crop&w=400&q=85"
+                src="https://images.unsplash.com/photo-1455659817273-f96807779a8a?auto=format&fit=crop&w=400&q=85"
                 alt="Fresh roses"
                 fill
                 sizes="144px"
